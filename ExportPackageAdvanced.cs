@@ -135,8 +135,10 @@ namespace Narazaka.Unity.ExportPackageAdvanced
         public static IEnumerable<Asset> GetAssets(Object[] objects, bool withDependencies)
         {
             var allObjects = withDependencies ? objects.Concat(EditorUtility.CollectDependencies(objects)) : objects;
-            return allObjects.Where(obj => obj != null).Select(obj => new Asset(obj)).Where(asset => asset.path != "Resources/unity_builtin_extra").Distinct(new SamePathAssetComparator());
+            return allObjects.Where(obj => obj != null).Select(obj => new Asset(obj)).Where(asset => !_ignorePathes.Contains(asset.path)).Distinct(new SamePathAssetComparator());
         }
+
+        static HashSet<string> _ignorePathes = new HashSet<string> { "Resources/unity_builtin_extra", "Library/unity default resources" };
 
         public class Asset
         {
