@@ -149,7 +149,11 @@ namespace Narazaka.Unity.ExportPackageAdvanced
             public bool isScriptLike => isScript || isDll || isAssemblyDefinition;
             public bool isFolder { get; }
             public bool isShader => obj is Shader;
+#if UNITY_2021_2_OR_NEWER
             public bool isShaderInclude => obj is ShaderInclude;
+#else
+            public bool isShaderInclude => path.EndsWith(".cginc");
+#endif
             public bool isShaderVariant => obj is ShaderVariantCollection;
             public bool isShaderLike => isShader || isShaderInclude || isShaderVariant;
 
