@@ -18,7 +18,7 @@ namespace Narazaka.Unity.ExportPackageAdvanced
         [SerializeField] bool _includeDependencies = true;
         [SerializeField] bool _includePackages;
         [SerializeField] bool _includeScripts;
-        [SerializeField] bool _includeShaders;
+        [SerializeField] bool _includeShaders = true;
         Asset[] _assets;
         TreeViewState _treeViewState = new TreeViewState();
         Asset[] _filteredAssets = null;
