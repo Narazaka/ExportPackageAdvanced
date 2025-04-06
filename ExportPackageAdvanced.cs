@@ -82,7 +82,7 @@ namespace Narazaka.Unity.ExportPackageAdvanced
                 _includeDependencies = EditorGUILayout.ToggleLeft("Include Dependencies", _includeDependencies);
                 if (check.changed)
                 {
-                    _filteredAssets = null;
+                    _assets = null;
                 }
             }
             using (var check = new EditorGUI.ChangeCheckScope())
