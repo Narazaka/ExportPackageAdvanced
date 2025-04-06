@@ -1,6 +1,6 @@
 {
   "name": "net.narazaka.unity.export-package-advanced",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "displayName": "Export Package (Advanced)",
   "description": "Advanced \"Export Package\" (without Scripts etc.)",
   "author": {
