@@ -13,4 +13,4 @@ jobs:
   build:
     uses: Narazaka/vpm-repos/.github/workflows/release.yml@main
     with:
-      novcc: false
+      novcc: true

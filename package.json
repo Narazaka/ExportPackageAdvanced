@@ -1,18 +1,14 @@
 {
-  "name": "net.narazaka.unity.export-package-without-scripts",
+  "name": "net.narazaka.unity.export-package-advanced",
   "version": "1.0.0",
-  "displayName": "Export Package without Scripts",
-  "description": "Export Package without Scripts",
+  "displayName": "Export Package (Advanced)",
+  "description": "Advanced \"Export Package\" (without Scripts etc.)",
   "author": {
     "name": "Narazaka",
     "url": "https://github.com/Narazaka"
   },
   "license": "Zlib",
   "type": "tool",
-  "url" : "https://github.com/Narazaka/ExportPackageWithoutScripts.git",
-  "unity": "2022.3",
-  "vpmDependencies": {
-    "com.vrchat.avatars": ">=3.7.5",
-    "com.vrchat.worlds": ">=3.7.5"
-  }
+  "url" : "https://github.com/Narazaka/ExportPackageAdvanced.git",
+  "unity": "2019.4"
 }
