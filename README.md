@@ -2,6 +2,8 @@
 
 Advanced "Export Package" (without Scripts etc.)
 
+![Screenshot](doc~/ExportPackageAdvanced.png)
+
 ## Install
 
 ### OpenUPM
