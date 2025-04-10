@@ -134,7 +134,8 @@ namespace Narazaka.Unity.ExportPackageAdvanced
 
         public static IEnumerable<Asset> GetAssets(Object[] objects, bool withDependencies)
         {
-            var allObjects = withDependencies ? objects.Concat(EditorUtility.CollectDependencies(objects)) : objects;
+            var paths = objects.Select(obj => AssetDatabase.GetAssetPath(obj)).Distinct().ToArray();
+            var allObjects = withDependencies ? AssetDatabase.GetDependencies(paths) : paths;
             return allObjects.Where(obj => obj != null).Select(obj => new Asset(obj)).Where(asset => !_ignorePathes.Contains(asset.path)).Distinct(new SamePathAssetComparator());
         }
 
@@ -159,10 +160,10 @@ namespace Narazaka.Unity.ExportPackageAdvanced
             public bool isShaderVariant => obj is ShaderVariantCollection;
             public bool isShaderLike => isShader || isShaderInclude || isShaderVariant;
 
-            public Asset(Object obj)
+            public Asset(string path)
             {
-                this.obj = obj;
-                path = AssetDatabase.GetAssetPath(obj);
+                this.obj = AssetDatabase.LoadAssetAtPath<Object>(path);
+                this.path = path;
                 isPackageContent = path.StartsWith("Packages/");
                 var isDefaultAsset = obj is DefaultAsset;
                 isDll = isDefaultAsset && path.EndsWith(".dll");
